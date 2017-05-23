@@ -1,25 +1,81 @@
 body {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 nav {
-    background-color: #333;
+	background-color: #E7E7DE;
+	padding-left: 20%;
+	padding-right: 20%;
+	overflow: auto;
+}
+
+nav .menu, nav .logo {
+	display: inline-block;
+}
+
+nav .menu {
+	min-width: 40%;
+	clear: both;
+	float: right;
+	margin-top: 30px;
+}
+
+nav .logo {
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 nav a {
-    text-decoration: none;
-    display: inline-block;
-    color: #ddd;
-    padding: 5px 10px;
+	font-size: 1.3em !important;
+	text-decoration: none;
+	display: inline-block;
+	color: #00587A;
+	padding: 25px 15px;
 }
 
 nav a:hover {
-    background-color: #555;
+	color: #0F3057;
+    background-color: transparent;
+    text-decoration: underline;
 }
 
 nav a.active {
-    background-color: #444;
+	background-color: #444;
+}
+
+.container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+.container:before, .container:after {
+	content: " ";
+	display: table;
+}
+
+.container:after {
+	clear: both;
+}
+
+@media ( min-width : 768px) {
+	.container {
+		width: 732px;
+	}
+}
+
+@media ( min-width : 992px) {
+	.container {
+		width: 952px;
+	}
+}
+
+@media ( min-width : 1200px) {
+	.container {
+		width: 1152px;
+	}
 }
 
 .width-50 {
@@ -28,4 +84,8 @@ nav a.active {
 
 .center {
 	margin: auto;
+}
+
+.mg-top-20 {
+	margin-top: 20px;
 }
