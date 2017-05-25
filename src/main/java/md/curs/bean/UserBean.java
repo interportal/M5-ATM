@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import java.util.Currency;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+
+import org.omnifaces.util.Messages;
 
 import md.curs.enums.CurrencyEnum;
 import md.curs.model.Deposit;
@@ -31,8 +34,10 @@ public class UserBean {
 	}
 
 	public void depositMoney() {
-
 		
+		userService.depositMoney(user, currency, money);
+		
+		Messages.add("growl-deposit", new FacesMessage("Money has been added"));
 	}
 
 	public User getUser() {

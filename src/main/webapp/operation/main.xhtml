@@ -4,7 +4,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/jsf/base.xhtml">
 
-	<ui:define name="title">User Info</ui:define>
+	<ui:define name="title">Operations</ui:define>
 
 	<ui:define name="metadata">
 		<f:metadata>
@@ -15,19 +15,20 @@
 
 	<ui:define name="content">
 
-		<div class="user-info">
+		<div class="operations-wrapper">
 			<div class="ui-g">
 
-
 				<div class="ui-g-6">
+					<h3>Deposit</h3>
 
 					<h:form prependId="false">
+						<p:growl id="growl-deposit" />
 
 						<p:panel styleClass="">
 
 							<div class="form-label">
-								<p:selectOneMenu id="currency-select"
-									value="#{userBean.currency}" placeholder="Money">
+								<p:selectOneMenu value="#{userBean.currency}"
+									placeholder="Money" required="true" requiredMessage="Please select currency">
 									<f:selectItem itemLabel="Select One" itemValue=""
 										noSelectionOption="true" />
 
@@ -38,21 +39,60 @@
 							</div>
 
 							<div class="form-label">
-								<p:inputText id="money" value="#{userBean.money}"
-									required="true"
+								<p:inputText value="#{userBean.money}" required="true"
 									requiredMessage="Please select an amount of money"
 									placeholder="Money" styleClass="full-width" />
+							</div>
+
+							<div class="form-label">
+
+								<p:commandButton action="#{userBean.depositMoney()}"
+									value="Submit" styleClass="button-width" update="growl-deposit" />
 							</div>
 
 						</p:panel>
 
 
 					</h:form>
-
 				</div>
 
 
-				<div class="ui-g-6">2</div>
+				<div class="ui-g-6">
+					<h3>Withdraw</h3>
+
+					<h:form prependId="false">
+					
+						<p:growl id="growl-withdraw" />
+
+						<p:panel styleClass="">
+
+							<div class="form-label">
+								<p:selectOneMenu value="#{userBean.currency}"
+									placeholder="Money">
+									<f:selectItem itemLabel="Select One" itemValue=""
+										noSelectionOption="true" />
+
+									<f:selectItems var="deposit" itemValue="#{deposit.currency}"
+										itemLabel="#{deposit.currency}"
+										value="#{userBean.user.deposit}" />
+								</p:selectOneMenu>
+							</div>
+
+							<div class="form-label">
+								<p:inputText value="#{userBean.money}" required="true"
+									requiredMessage="Please select an amount of money"
+									placeholder="Money" styleClass="full-width" />
+							</div>
+
+							<div class="form-label">
+
+								<p:commandButton action="#" value="Submit"
+									styleClass="button-width" update="growl-withdraw" />
+							</div>
+
+						</p:panel>
+					</h:form>
+				</div>
 			</div>
 		</div>
 	</ui:define>

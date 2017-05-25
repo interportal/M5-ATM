@@ -23,4 +23,14 @@ public class UserRepository {
     public User getUser(long id) {
         return em.find(User.class, id);
     }
+    
+    /**
+     * creates or updates an user
+     *
+     * @param user user to save
+     * @return the managed user
+     */
+    public User save(User user) {
+        return em.merge(user);
+    }
 }
