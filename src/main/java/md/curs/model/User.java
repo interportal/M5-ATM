@@ -2,10 +2,12 @@ package md.curs.model;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -23,9 +25,9 @@ public class User {
 	private String gender;
 	private Date birthDate;
 	
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "user_deposits", joinColumns = @JoinColumn(name = "user_id"))
-	private List<Deposit> deposit;
+	private Set<Deposit> deposit;
 
 	public Long getId() {
 		return id;
@@ -83,11 +85,11 @@ public class User {
 		this.birthDate = birthDate;
 	}
 
-	public List<Deposit> getDeposit() {
+	public Set<Deposit> getDeposit() {
 		return deposit;
 	}
 
-	public void setDeposit(List<Deposit> deposit) {
+	public void setDeposit(Set<Deposit> deposit) {
 		this.deposit = deposit;
 	}
 }

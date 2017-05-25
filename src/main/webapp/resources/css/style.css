@@ -1,3 +1,17 @@
+/* Components Override */
+
+.ui-selectonemenu {
+    padding-right: 0.31em !important;
+}
+
+.ui-selectonemenu{
+     width: 100% !important;
+}
+
+.ui-selectonemenu-label{
+     width: 100% !important;
+}  
+
 body {
 	margin: 0;
 	padding: 0;
@@ -88,4 +102,27 @@ nav a.active {
 
 .mg-top-20 {
 	margin-top: 20px;
+}
+
+.mg-bot-20 {
+	margin-bottom: 20px;
+}
+
+.full-width {
+	width: 100% !important; 
+}
+
+.user-info {
+	padding-left: 200px;
+	padding-right: 200px;
+	padding-top: 40px;
+	font-size: 1.5em;
+	font-family: "latoregular","Trebuchet MS",Arial,Helvetica,sans-serif;
+}
+
+.form-label {
+	
+	padding: 20px;
+	margin-bottom: 20px;
+	
 }

@@ -1,11 +1,16 @@
 package md.curs.bean;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Currency;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
+import md.curs.enums.CurrencyEnum;
+import md.curs.model.Deposit;
 import md.curs.model.User;
 import md.curs.service.UserService;
 
@@ -17,9 +22,17 @@ public class UserBean {
 	private UserService userService;
 	private User user;
 	private Long id;
+	private CurrencyEnum currency;
+	private BigDecimal money;
+
 	
 	public void initUser() {
 		user = userService.getUser(id);
+	}
+
+	public void depositMoney() {
+
+		
 	}
 
 	public User getUser() {
@@ -40,5 +53,21 @@ public class UserBean {
 
 	public void setUserService(UserService userService) {
 		this.userService = userService;
+	}
+
+	public BigDecimal getMoney() {
+		return money;
+	}
+
+	public void setMoney(BigDecimal money) {
+		this.money = money;
+	}
+
+	public CurrencyEnum getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(CurrencyEnum currency) {
+		this.currency = currency;
 	}
 }

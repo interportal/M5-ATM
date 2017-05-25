@@ -1,0 +1,59 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/jsf/base.xhtml">
+
+	<ui:define name="title">User Info</ui:define>
+
+	<ui:define name="metadata">
+		<f:metadata>
+			<f:viewParam name="id" value="#{userBean.id}" />
+			<f:viewAction action="#{userBean.initUser()}" />
+		</f:metadata>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<div class="user-info">
+			<div class="ui-g">
+
+
+				<div class="ui-g-6">
+
+					<h:form prependId="false">
+
+						<p:panel styleClass="">
+
+							<div class="form-label">
+								<p:selectOneMenu id="currency-select"
+									value="#{userBean.currency}" placeholder="Money">
+									<f:selectItem itemLabel="Select One" itemValue=""
+										noSelectionOption="true" />
+
+									<f:selectItems var="deposit" itemValue="#{deposit.currency}"
+										itemLabel="#{deposit.currency}"
+										value="#{userBean.user.deposit}" />
+								</p:selectOneMenu>
+							</div>
+
+							<div class="form-label">
+								<p:inputText id="money" value="#{userBean.money}"
+									required="true"
+									requiredMessage="Please select an amount of money"
+									placeholder="Money" styleClass="full-width" />
+							</div>
+
+						</p:panel>
+
+
+					</h:form>
+
+				</div>
+
+
+				<div class="ui-g-6">2</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

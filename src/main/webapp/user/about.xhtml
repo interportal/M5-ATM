@@ -1,56 +1,65 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:f="http://xmlns.jcp.org/jsf/core"
-                xmlns:p="http://primefaces.org/ui"
-                template="/WEB-INF/jsf/base.xhtml">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/jsf/base.xhtml">
 
-    <ui:define name="title">User Info</ui:define>
-    
-    <ui:define name="metadata">
-    	<f:metadata>
-    		<f:viewParam name="id" value="#{userBean.id}" />
-    		<f:viewAction action="#{userBean.initUser()}" />
-    	</f:metadata>
-    </ui:define>
-    
-    <ui:define name="content">
-		
-				
-			<p:panelGrid columns="2" >
-			
-				<h:outputText value="Name" />
-				<h:outputText value="#{userBean.user.firstName}" />
-				
-				<p:spacer/>
-				<p:spacer/>
-				
-				<h:outputText value="Surname" />
-				<h:outputText value="#{userBean.user.lastName}" />
-				
-				<p:spacer/>
-				<p:spacer/>
-				
-				<h:outputText value="Birth Date" />
-				<h:outputText value="#{userBean.user.birthDate}">
-					<f:convertDateTime locale="ro_RO" />
-				</h:outputText>
-				
-				<p:spacer/>
-				<p:spacer/>
-				
-				<h:outputText value="Gender" />
-				<h:outputText value="#{userBean.user.gender}" />
-				
-				<p:spacer/>
-				<p:spacer/>
-				
-				<h:outputText value="E-Mail" />
-				<h:outputText value="#{userBean.user.email}" />
-			
-			</p:panelGrid>
-			
-			<p:graphicImage lib="img" name="male.png"/>
-		
-    </ui:define>
+	<ui:define name="title">User Info</ui:define>
+
+	<ui:define name="metadata">
+		<f:metadata>
+			<f:viewParam name="id" value="#{userBean.id}" />
+			<f:viewAction action="#{userBean.initUser()}" />
+		</f:metadata>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<div class="user-info">
+			<div class="ui-g">
+				<div class="ui-g-8 ui-g-nopad">
+					<div class="ui-g-6">
+						<h:outputText value="Name" />
+					</div>
+					<div class="ui-g-6">
+						<h:outputText value="#{userBean.user.firstName}" />
+					</div>
+
+					<div class="ui-g-6">
+						<h:outputText value="Surname" />
+					</div>
+					<div class="ui-g-6">
+						<h:outputText value="#{userBean.user.lastName}" />
+					</div>
+
+					<div class="ui-g-6">
+						<h:outputText value="Birth Date" />
+					</div>
+					<div class="ui-g-6">
+						<h:outputText value="#{userBean.user.birthDate}">
+							<f:convertDateTime locale="ro_RO" />
+						</h:outputText>
+					</div>
+
+					<div class="ui-g-6">
+						<h:outputText value="Gender" />
+					</div>
+					<div class="ui-g-6">
+						<h:outputText value="#{userBean.user.gender}" />
+					</div>
+
+					<div class="ui-g-6">
+						<h:outputText value="E-Mail" />
+					</div>
+					<div class="ui-g-6">
+						<h:outputText value="#{userBean.user.email}" />
+					</div>
+				</div>
+				<div class="ui-g-4">
+					<h:graphicImage rendered="#{userBean.user.gender eq 'MALE'}" name="img/male.png" />
+				 	<h:graphicImage rendered="#{userBean.user.gender eq 'FEMALE'}" name="img/female.png" />
+				</div>
+			</div>
+		</div>
+	</ui:define>
 </ui:composition>
