@@ -17,6 +17,11 @@
 
 		<div class="user-info">
 			<div class="ui-g">
+				
+				<div class="ui-g-12">
+					<h3>User Info</h3>
+				</div>
+			
 				<div class="ui-g-8 ui-g-nopad">
 					<div class="ui-g-6">
 						<h:outputText value="Name" />
@@ -58,6 +63,28 @@
 				<div class="ui-g-4">
 					<h:graphicImage rendered="#{userBean.user.gender eq 'MALE'}" name="img/male.png" />
 				 	<h:graphicImage rendered="#{userBean.user.gender eq 'FEMALE'}" name="img/female.png" />
+				</div>
+				
+				<div class="ui-g-12">
+					<h3>Bank Accounts</h3>
+				</div>
+				
+				<div class="ui-g-8">
+				
+					<ui:repeat var="deposit" value="#{userBean.getDepositsAsList()}">
+					
+						<div class="ui-g-6">
+							#{deposit.currency}
+						</div>
+						
+						<div class="ui-g-6">
+							#{deposit.amount}
+						</div>
+					</ui:repeat>
+				</div>
+				
+				<div class="ui-g-4">
+				
 				</div>
 			</div>
 		</div>

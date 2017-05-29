@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -24,6 +25,9 @@ public class User {
 	private String password;
 	private String gender;
 	private Date birthDate;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Transaction> transaction;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "user_deposits", joinColumns = @JoinColumn(name = "user_id"))
@@ -91,5 +95,13 @@ public class User {
 
 	public void setDeposit(Set<Deposit> deposit) {
 		this.deposit = deposit;
+	}
+
+	public List<Transaction> getTransaction() {
+		return transaction;
+	}
+
+	public void setTransaction(List<Transaction> transaction) {
+		this.transaction = transaction;
 	}
 }

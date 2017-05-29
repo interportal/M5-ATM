@@ -67,8 +67,7 @@
 						<p:panel styleClass="">
 
 							<div class="form-label">
-								<p:selectOneMenu value="#{userBean.currency}"
-									placeholder="Money">
+								<p:selectOneMenu value="#{userBean.currency}" required="true" requiredMessage="Please select currency">
 									<f:selectItem itemLabel="Select One" itemValue=""
 										noSelectionOption="true" />
 
@@ -86,7 +85,7 @@
 
 							<div class="form-label">
 
-								<p:commandButton action="#" value="Submit"
+								<p:commandButton action="#{userBean.withdrawMoney()}" value="Submit"
 									styleClass="button-width" update="growl-withdraw" />
 							</div>
 

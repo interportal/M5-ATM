@@ -8,14 +8,46 @@
 
 	<ui:define name="metadata">
 		<f:metadata>
-			<f:viewParam name="id" value="#{userBean.id}" />
-			<f:viewAction action="#{userBean.initUser()}" />
+			<f:viewParam name="q" value="#{transactionBean.searchQuery}" />
+			<f:viewAction action="#{transactionBean.init()}" />
 		</f:metadata>
 	</ui:define>
 
 	<ui:define name="content">
-		
-		
-		
+		<div class="transactions-wrapper">
+			<h3>Transactions</h3>
+			<h:form id="search-form">
+				<p:inputText id="search" value="#{transactionBean.searchQuery}"
+					placeholder="Search">
+					<p:ajax event="keyup" delay="200"
+						listener="#{transactionBean.search()}"
+						update=":transactions-table" />
+				</p:inputText>
+			</h:form>
+			
+			<p:dataTable id="transactions-table" var="trns"
+				value="#{transactionBean.transactionList}">
+
+				<p:column headerText="Time">
+					#{trns.time}
+				</p:column>
+
+				<p:column headerText="First Name">
+					#{trns.user.firstName}
+				</p:column>
+
+				<p:column headerText="Last Name">
+					#{trns.user.lastName}
+				</p:column>
+
+				<p:column headerText="Type">
+					#{trns.transactionType}
+				</p:column>
+
+				<p:column headerText="Amount">
+					#{trns.amount}
+				</p:column>
+			</p:dataTable>
+		</div>
 	</ui:define>
 </ui:composition>

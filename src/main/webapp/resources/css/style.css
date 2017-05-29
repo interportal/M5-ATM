@@ -119,7 +119,7 @@ nav a.active {
 .user-info {
 	padding-left: 200px;
 	padding-right: 200px;
-	padding-top: 40px;
+	padding-top: 5px;
 	font-size: 1.5em;
 	font-family: "latoregular","Trebuchet MS",Arial,Helvetica,sans-serif;
 }
@@ -130,6 +130,24 @@ nav a.active {
 	padding-top: 5px;
 	font-size: 1.5em;
 	font-family: "latoregular","Trebuchet MS",Arial,Helvetica,sans-serif;
+}
+
+.transactions-wrapper {
+	padding-top: 5px;
+	font-family: "latoregular","Trebuchet MS",Arial,Helvetica,sans-serif;
+}
+
+.transactions-wrapper h3 {
+	display: inline-block;
+	font-size: 1.5em;
+}
+
+.transactions-wrapper #search-form {
+	min-width: 1.3em;
+}
+
+.transactions-wrapper table tbody tr td {
+	text-align: center;
 }
 
 .form-label {
